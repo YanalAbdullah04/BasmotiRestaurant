@@ -110,7 +110,7 @@
                     @*  <a asp-action="Delete" asp-route-deleteid="@item.MasterItemMenuId">Delete</a> *@
                     <button type="button"
                             class="btn btn-danger rounded-pill csDelete"
-                            data-navigation="@Url.ActionLink("Delete", "MasterWorkingHours", new { id = item.MasterWorkingHoursId })"
+                            data-navigation="@Url.ActionLink("Delete", "MasterWorkingHours", new { deleteid = item.MasterWorkingHoursId })"
                             data-toggle="modal" data-target="#target">
                         <i class="bi bi-trash-fill"></i>
                         Delete

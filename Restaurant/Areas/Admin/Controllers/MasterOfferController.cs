@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Models;
@@ -10,6 +11,7 @@ namespace Restaurant.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
+    [Authorize]
     public class MasterOfferController : Controller
     {
         public IRepository<MasterOffer> Repository { get; }

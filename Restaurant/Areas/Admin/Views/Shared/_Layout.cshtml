@@ -91,11 +91,11 @@
  
 
                 <li class="nav-item dropdown pe-3">
-
+                    @if(User.Identity.IsAuthenticated){
                     <a asp-action="Profile" asp-controller="Account" class="nav-link nav-profile d-flex align-items-center pe-0" data-bs-toggle="dropdown">
                         @await Component.InvokeAsync("UserInfoComponent")
                     </a><!-- End Profile Iamge Icon -->
-
+                    }
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                
                         <li>

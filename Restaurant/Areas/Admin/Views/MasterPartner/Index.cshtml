@@ -112,7 +112,7 @@
                    @*  <a asp-action="Delete" asp-route-deleteid="@item.MasterItemMenuId">Delete</a> *@
                            <button type="button"
                             class="btn btn-danger rounded-pill csDelete"
-                            data-navigation="@Url.ActionLink("Delete", "MasterPartner", new { id = item.MasterPartnerId })"
+                            data-navigation="@Url.ActionLink("Delete", "MasterPartner", new { deleteid = item.MasterPartnerId })"
                             data-toggle="modal" data-target="#target">
                         <i class="bi bi-trash-fill"></i>
                         Delete

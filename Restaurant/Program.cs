@@ -37,7 +37,6 @@ builder.Services.Configure<IdentityOptions>(x =>
 
 
 builder.Services.AddIdentity<AdminUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
-
 builder.Services.AddScoped<IRepository<MasterCategoryMenu>, MasterCategoryMenuRepository>();
 builder.Services.AddScoped<IRepository<MasterItemMenu>, MasterItemMenuRepository>();
 builder.Services.AddScoped<IRepository<MasterMenu>, MasterMenuRepository>();
@@ -57,6 +56,7 @@ builder.Services.AddScoped<IRepository<SystemSetting>,SystemSettingRepository>()
 var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
+
 //app.UseRouting();
 app.UseStaticFiles();
 
