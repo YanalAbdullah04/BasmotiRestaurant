@@ -1,4 +1,4 @@
-\*\*Basmoli\*\* is a full-stack web application designed for restaurants. It features a modern, responsive customer-facing website for browsing menus and making reservations, coupled with a powerful Admin Dashboard for complete content management.
+\*\*Basmoti\*\* is a full-stack web application designed for restaurants. It features a modern, responsive customer-facing website for browsing menus and making reservations, coupled with a powerful Admin Dashboard for complete content management.
 
 
 
@@ -92,11 +92,13 @@ The solution is organized using standard ASP.NET Core conventions:
 
 &nbsp;   ```bash
 
-&nbsp;   git clone \[https://github.com/](https://github.com/)\[your-username]/Basmoli.git
+&nbsp;   git clone https://github.com/YanalAbdullah04/Restaurant.git
 
 &nbsp;   ```
 
 2\.  \*\*Configure Database\*\*
+
+&nbsp;   \* you can install abackub of the db from Restaurant file.
 
 &nbsp;   \* Open `appsettings.json`.
 
