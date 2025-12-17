@@ -1,0 +1,184 @@
+﻿@model Restaurant.ViewModels.SystemSettingModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Edit Menu Item </h5>
+        <nav class="">
+            <ol class="breadcrumb">
+       
+                <li class="breadcrumb-item"><a asp-action="Index">System settings </a></li>
+                <li class="breadcrumb-item active">Edit system settings</li>
+
+
+            </ol>
+        </nav>
+        <hr />
+
+
+        <form asp-action="Edit" class="row g-3" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div hidden>
+                <input asp-for="SystemSettingId" hidden />
+                <input type="hidden" asp-for="CreatDate" />
+                <input type="hidden" asp-for="CreatUser" />
+                <input type="hidden" asp-for="EditUser" />
+                <input type="hidden" asp-for="EditDate" />
+                <input type="hidden" asp-for="SystemSettingLogoImageUrl" />
+                <input type="hidden" asp-for="SystemSettingLogoImageUrl2" />
+                <input type="hidden" asp-for="SystemSettingWelcomeNoteImageUrl" />
+
+
+
+                
+
+            </div>
+            <div class="col-12">
+
+                <label asp-for="SystemSettingWelcomeNoteTitle" class="control-label"></label>
+                <input asp-for="SystemSettingWelcomeNoteTitle" class="form-control " />
+
+                <span asp-validation-for="SystemSettingWelcomeNoteTitle" class="text-danger"></span>
+
+
+            </div>
+
+            <div class="col-12">
+
+                <label asp-for="SystemSettingWelcomeNoteDesc" class="control-label"></label>
+                <input asp-for="SystemSettingWelcomeNoteDesc" class="form-control " />
+
+                <span asp-validation-for="SystemSettingWelcomeNoteDesc" class="text-danger"></span>
+
+
+            </div>
+
+            <div class="col-6">
+
+                <label asp-for="SystemSettingCopyright" class="control-label"></label>
+                <input asp-for="SystemSettingCopyright" class="form-control " />
+
+                <span asp-validation-for="SystemSettingCopyright" class="text-danger"></span>
+
+
+            </div>
+
+
+
+            <div class="col-6">
+
+                <label asp-for="ContactUsLocation" class="control-label"></label>
+                <input asp-for="ContactUsLocation" class="form-control " />
+
+                <span asp-validation-for="ContactUsLocation" class="text-danger"></span>
+
+
+            </div>
+            <div class="col-6">
+
+                <label asp-for="ContactUsEmail" class="control-label"></label>
+                <input asp-for="ContactUsEmail" class="form-control " />
+
+                <span asp-validation-for="ContactUsEmail" class="text-danger"></span>
+
+
+            </div>
+            <div class="col-6">
+
+                <label asp-for="ContactUsPhone" class="control-label"></label>
+                <input asp-for="ContactUsPhone" class="form-control " />
+
+                <span asp-validation-for="ContactUsPhone" class="text-danger"></span>
+
+
+            </div>
+            <div class="col-12">
+
+                <label asp-for="SystemSettingWelcomeNoteBreef" class="control-label"></label>
+                <input asp-for="SystemSettingWelcomeNoteBreef" class="form-control " />
+
+                <span asp-validation-for="SystemSettingWelcomeNoteBreef" class="text-danger"></span>
+
+
+            </div>
+            <div class="col-12">
+
+                <label asp-for="SystemSettingMapLocation" class="control-label"></label>
+                <input asp-for="SystemSettingMapLocation" class="form-control " />
+
+                <span asp-validation-for="SystemSettingMapLocation" class="text-danger"></span>
+
+
+            </div>
+
+
+            <div class="col-12">
+
+                <label asp-for="SystemSettingWelcomeNoteUrl" class="control-label"></label>
+                <input asp-for="SystemSettingWelcomeNoteUrl" class="form-control " />
+
+                <span asp-validation-for="SystemSettingWelcomeNoteUrl" class="text-danger"></span>
+
+
+            </div>
+   
+            <div class="col-4">
+
+                <label asp-for="LogoFile1" class="control-label"></label>
+                <input asp-for="LogoFile1" class="form-control " />
+
+                <span asp-validation-for="LogoFile1" class="text-danger"></span>
+
+
+            </div>
+            <div class="col-4">
+
+                <label asp-for="LogoFile2" class="control-label"></label>
+                <input asp-for="LogoFile2" class="form-control " />
+
+                <span asp-validation-for="LogoFile2" class="text-danger"></span>
+
+
+            </div>
+            <div class="col-4">
+
+                <label asp-for="WelcomFile" class="control-label"></label>
+                <input asp-for="WelcomFile" class="form-control " />
+
+                <span asp-validation-for="WelcomFile" class="text-danger"></span>
+
+
+            </div>
+
+
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <div>
+
+                <button type="button" class="btn btn-outline-primary">
+                    <a asp-action="Index">Cancel </a>
+
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+

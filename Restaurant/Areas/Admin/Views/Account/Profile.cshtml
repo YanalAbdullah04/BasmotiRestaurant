@@ -1,0 +1,277 @@
+﻿@model Restaurant.ViewModels.AdminUserModel
+@{
+    ViewData["Title"] = "Profile";
+}
+ <h1>Profile</h1>
+<ol class="breadcrumb">
+          <li class="breadcrumb-item">
+              <a  asp-action="Index" asp-controller="Home"> Home</a></li>
+
+    <li class="breadcrumb-item">
+        <a asp-action="Profile" active asp-controller="Account">Profile</a>
+    </li>
+
+        </ol>
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-4">
+
+            <div class="card">
+                <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+                    <img src="~/admin/assets/img/@Html.DisplayFor(model => model.imageurl)" class="rounded-circle" />
+                    <h2>
+
+
+                        @Html.DisplayFor(model => model.FullName)
+                    </h2>
+                    <h3>
+                        @Html.DisplayFor(model => model.JobTitle)
+
+                    </h3>
+                    <div class="social-links mt-2">
+                        <a href=" @Html.DisplayFor(model => model.TwitterLink)" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href=" @Html.DisplayFor(model => model.FaceBookLink)" class="facebook"><i class="bi bi-facebook"></i></a>
+                        <a href=" @Html.DisplayFor(model => model.InstegramLink)" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href=" @Html.DisplayFor(model => model.LinkedInLink)" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xl-8">
+
+            <div class="card">
+                <div class="card-body pt-3">
+                    <!-- Bordered Tabs -->
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+
+                        <li class="nav-item">
+                            <button class="nav-link" active data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="nav-link " data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+                        </li>
+
+
+
+
+                    </ul>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade profile-overview" active  id="profile-overview">
+
+                            <h5 class="card-title">Profile Details</h5>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label ">
+
+                                    @Html.DisplayNameFor(model => model.FullName)
+
+
+                                </div>
+                                <div class="col-lg-9 col-md-8"> @Html.DisplayFor(model => model.FullName)</div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">
+                                    @Html.DisplayNameFor(model => model.JobTitle)
+
+
+                                </div>
+                                <div class="col-lg-9 col-md-8"> @Html.DisplayFor(model => model.JobTitle)</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">   @Html.DisplayNameFor(model => model.BirthDate)</div>
+                                <div class="col-lg-9 col-md-8">  @Html.DisplayFor(model => model.BirthDate)</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">@Html.DisplayNameFor(model => model.Country)</div>
+                                <div class="col-lg-9 col-md-8"> @Html.DisplayFor(model => model.Country)</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">@Html.DisplayNameFor(model => model.Address)</div>
+                                <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.Address)</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">         @Html.DisplayNameFor(model => model.phoneNumber)</div>
+                                <div class="col-lg-9 col-md-8">         @Html.DisplayFor(model => model.phoneNumber)</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 label">            @Html.DisplayNameFor(model => model.Email)</div>
+                                <div class="col-lg-9 col-md-8"><a href="@Html.DisplayFor(model => model.Email)" class="__cf_email__" data-cfemail="d6bdf8b7b8b2b3a4a5b9b896b3aeb7bba6bab3f8b5b9bb">[email&nbsp;protected]</a></div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane fade profile-edit pt-3  show" id="profile-edit" onclick="">
+
+                            <!-- Profile Edit Form -->
+
+
+
+     
+                            <form asp-action="Edit" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="imageurl" />
+                                <div class="row mb-3">
+                                    <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <img src="~/admin/assets/img/@Html.DisplayFor(model => model.imageurl)"/>
+                                        <div class="pt-2">
+                                            <!-- Hidden file input bound to your model -->
+                                            <input asp-for="ImageFile" type="file" id="fileInput" hidden />
+
+                                            <!-- Button that opens the file chooser -->
+                                            <button type="button" class="btn btn-primary btn-sm" title="Upload new profile image"
+                                                    onclick="document.getElementById('fileInput').click();">
+                                                <i class="bi bi-upload"></i>
+                                                
+                                            </button>
+
+                                         @*    <button type="submit" class="btn btn-sm  btn-danger"> *@
+                                                <a  asp-action="Delete" class="btn btn-danger btn-sm btn-sm" title="Remove my profile image">
+
+                                                    <i class="bi bi-trash"></i>
+
+                                                </a>
+
+
+
+            
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label asp-for="FullName" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="FullName" class="form-control" />
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <label asp-for="JobTitle" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="JobTitle" class="form-control" />
+                                        <span asp-validation-for="JobTitle" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="Country" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="Country" class="form-control" />
+                                        <span asp-validation-for="Country" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="Address" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="Address" class="form-control" />
+                                        <span asp-validation-for="Address" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for ="BirthDate" class="col-md-4 col-lg-3 col-form-label">
+                                        </label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="BirthDate" class="form-control" />
+                                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="phoneNumber" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="phoneNumber" class="form-control" />
+                                        <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 hidden">
+                                    <label  hidden asp-for="Email" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input hidden asp-for="Email" class="form-control" />
+                                        <span hidden asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="TwitterLink" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="TwitterLink" class="form-control" />
+                                        <span asp-validation-for="TwitterLink" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="FaceBookLink" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="FaceBookLink" class="form-control" />
+                                        <span asp-validation-for="FaceBookLink" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label asp-for="LinkedInLink" class="col-md-4 col-lg-3 col-form-label"></label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="LinkedInLink" class="form-control" />
+                                        <span asp-validation-for="LinkedInLink" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label asp-for="InstegramLink" class="col-md-4 col-lg-3 col-form-label"> </label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input asp-for="InstegramLink" class="form-control" />
+                                        <span asp-validation-for="InstegramLink" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="text-center">
+
+<button type="submit" class="btn btn-primary">
+    <i class="bi bi-pencil-square"></i>
+    Save Changes
+</button>
+
+
+
+
+                                </div>
+                            </form><!-- End Profile Edit Form -->
+
+                        </div>
+
+
+
+               
+                    </div><!-- End Bordered Tabs -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+

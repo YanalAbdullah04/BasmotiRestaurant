@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "AboutUs";
+}
+<div class="about-area ptb-95">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6">
+                <div class="about-content pr-30">
+                    <h2>About Basmoti Restaurant </h2>
+                    <h3> @Model.SystemSetting.SystemSettingWelcomeNoteBreef </h3>
+                    <div class="about-peragraph">
+                        <p> @Model.SystemSetting.SystemSettingWelcomeNoteDesc</p>
+
+
+                   
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-img">
+                    <img alt="" src="~/images/@Model.SystemSetting.SystemSettingWelcomeNoteImageUrl">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="services-area pt-100 pb-70 gray-bg">
+    <div class="container">
+        <div class="section-title text-center mb-50">
+            <h2>Our Services</h2>
+            <p>
+                We’re here to serve more than just great food. From dine-in and takeaway to fast delivery and event catering, Basmoti offers a full range of services to make your experience smooth, convenient, and satisfying. Your comfort and taste come first.
+
+            </p>
+        </div>
+        <div class="row">
+
+            @{
+                foreach(var item in Model.MasterServicesList)
+                {
+
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                        <div class="single-service text-center mb-30">
+                            <img class="fa" src="~/images/@item.MasterServicesImage" style="width:35px;height:36px"/>
+                            <h3>
+                            @item.MasterServicesTitle
+                            
+                            </h3>
+                            <p> @item.MasterServicesDesc</p>
+                        </div>
+                    </div>
+
+                }
+            }
+
+        </div>
+    </div>
+</div>
+
+

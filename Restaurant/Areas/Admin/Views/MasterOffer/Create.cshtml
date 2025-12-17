@@ -1,0 +1,79 @@
+﻿@model Restaurant.ViewModels.MasterOfferModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fs-2">Creat Offer </h5>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li class="breadcrumb-item"><a asp-action="Index"> Menu</a></li>
+                <li class="breadcrumb-item active">Creat Offer</li>
+            </ol>
+        </nav>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+
+
+                    <div class="col-12">
+                        <label asp-for="MasterOfferBreef" class="control-label"></label>
+                        <input asp-for="MasterOfferBreef" class="form-control" />
+                        <span asp-validation-for="MasterOfferBreef" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="col-12">
+                        <label asp-for="MasterOfferDesc" class="control-label"></label>
+                        <input asp-for="MasterOfferDesc" class="form-control" />
+                        <span asp-validation-for="MasterOfferDesc" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="MasterOfferTitle" class="control-label"></label>
+                        <input asp-for="MasterOfferTitle" class="form-control" />
+                        <span asp-validation-for="MasterOfferTitle" class="text-danger"></span>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="File" class="control-label"></label>
+                        <input asp-for="File" class="form-control" />
+                        <span asp-validation-for="File" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="text-center mt-5">
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                        <button type="submit" class="btn btn-primary">creat</button>
+                    </div>
+
+                    <div>
+
+                        <button type="button" class="btn btn-outline-primary" >
+                            <a asp-action="Index"> Cancel</a>
+
+                        </button>
+                    </div>
+
+                </form>
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<div>
+</div>

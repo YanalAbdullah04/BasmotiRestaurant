@@ -1,0 +1,112 @@
+﻿@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="product-menu-area pt-100 pb-70 gray-bg">
+    <div class="container">
+        <div class="section-title text-center mb-50">
+            <h2>Our Food Menu</h2>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim nostrud exercitation ullamco laboris nisi.</p>
+        </div>
+        <div class="menu-tab-wrap mb-50">
+            <div class="menu-tab-list nav text-center">
+                @{
+                    bool first = true;
+                    var catlist = Model.masterCategoryMenuList.OrderBy(x => x.MasterCategoryMenuName);
+
+                    foreach (var item in catlist)
+
+                    {
+                        <a class="nav-link @(first ? "active" : "")" href="#tab-@item.MasterCategoryMenuId" data-bs-toggle="tab">
+                            @item.MasterCategoryMenuName
+                        </a>
+                        first = false;
+                    }
+
+                }
+
+            </div>
+        </div>
+        <div class="tab-content jump">
+            @{
+                bool first2 = true;
+                foreach (var Category in catlist)
+                {
+
+                    <div id="tab-@Category.MasterCategoryMenuId" class="tab-pane fade @(first2 ? "show active" : "")">
+
+
+                        <div class="row">
+
+
+                            @{
+
+                                var list = Model.MasterItemMenuList.Where(x => x.MasterCategoryMenuId == Category.MasterCategoryMenuId).OrderBy(x=>x.MasterCategoryMenu.MasterCategoryMenuName).ToList();
+                                if (list.Count == 0)
+                                    list = Model.MasterItemMenuList;
+
+                                foreach (var item in list)
+                                {
+
+                                    <div class="col-lg-6">
+                                       <a asp-action="ItemDetailes" asp-controller="Home" asp-route-itemid="@item.MasterItemMenuId" >
+                                        <div class="single-menu-product mb-30">
+                                            <div class="menu-product-img">
+                                         
+                                                <img alt="" src="~/images/@item.MasterItemMenuImageUrl "
+                                                     style="width:100px ;height:100px" />
+
+                                            </div>
+                                            <div class="menu-product-content">
+                                                <div class="menu-title-price">
+                                                    <div class="menu-title">
+                                                        <h4>
+                                                            @item.MasterItemMenuTitle
+                                                        </h4>
+                                                    </div>
+                                                    <div class="menu-price">
+                                                        <span>@item.MasterItemMenuPrice</span>
+                                                    </div>
+                                                </div>
+                                                <p>@item.MasterItemMenuDesc</p>
+                                            </div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                }
+                              
+                            }
+
+                        </div>
+                       @{ first2 = false;}
+                    </div>
+               
+                }
+          
+
+            }
+        </div>
+
+    </div>
+</div>
+
+<div class="brand-logo-area ptb-100">
+    <div class="container">
+        <div class="brand-logo-active owl-carousel">
+            @{
+                foreach ( var item in Model.MasterPartnerList)
+                {
+                    <div class="single-brand-logo">
+                    <a  href="@item.MasterPartnerWebsiteUrl">
+                        <img alt="" src="~/images/@item.MasterPartnerLogoImageUrl">
+                        </a>
+                    </div>
+                    
+                }
+
+            }
+   
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿
+tbody, td, tfoot, th, thead, tr {
+    text-align: center !important;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+.dataTable-sorter {
+    position: inherit;
+}
+
+
+img {
+  
+    max-height:50px !important;
+
+    height:50px;
+}
+ td {
+    align-content: center !important;
+
+}
+.dataTable-table tbody tr td {
+    align-content: center !important;
+}
+.operationsbuttons{
+    flex-wrap:wrap !important
+}

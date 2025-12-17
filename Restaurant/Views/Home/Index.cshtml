@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+
+<div class="slider-area">
+    <div class="slider-active owl-dot-style owl-carousel">
+
+
+        @{
+            foreach (var item in Model.MasterSliderList)
+            {
+
+                <div class="single-slider bg-img height-100vh d-flex align-items-center justify-content-center" style="background-image:url(/images/@item.MasterSliderImageUrl);">
+                    <div class="slider-content pt-100">
+                        <div class="slider-content-wrap slider-animated-1">
+                            <h2 class="animated">
+                                @Html.Raw(item.MasterSliderTitle)
+                            </h2>
+                            <h1 class="animated">  @Html.Raw(item.MasterSliderBreef)</h1>
+                            <p>@Html.Raw(item.MasterSliderDesc)</p>
+                     
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+
+    </div>
+</div>
+
+
+
+
+<div class="about-area ptb-95">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6">
+                <div class="about-content pr-30">
+                    <h2>About Basmoti Restaurant </h2>
+                    <h3> @Model.SystemSetting.SystemSettingWelcomeNoteBreef </h3>
+                    <div class="about-peragraph">
+                        <p> @Model.SystemSetting.SystemSettingWelcomeNoteDesc</p>
+
+
+                        <div class="default-btn-style mt-35">
+                            <a href="@Model.SystemSetting.SystemSettingWelcomeNoteUrl">read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-img">
+                    <img alt="" src="~/images/@Model.SystemSetting.SystemSettingWelcomeNoteImageUrl">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popular-product gray-bg pt-100 pb-100">
+    <div class="container">
+        <div class="section-title text-center mb-50">
+            <h2>Our Popular Dishes</h2>
+        </div>
+        <div class="product-slider-active owl-carousel">
+
+
+
+
+            @{
+                foreach (var item in Model.MasterItemMenuList)
+                {
+                    @if (item.MasterItemMenuPrice < 10)
+
+                        continue;
+
+                    <div class="product-style-wrap">
+                        <div class="product-content text-center">
+
+                            <img alt="" src="~/images/@item.MasterItemMenuImageUrl"
+                                 style="border-radius: 21px;
+                                    height: 190px;">
+
+                            <h4>
+                                @item.MasterItemMenuTitle
+                            </h4>
+                            <p>@item.MasterItemMenuBreef</p>
+                            <span>$@item.MasterItemMenuPrice</span>
+                        </div>
+                    </div>
+                }
+            }
+
+
+
+        </div>
+    </div>
+    <div class="popular-bg-img">
+        <img alt="" src="~/assets/img/banner/popular.png">
+    </div>
+</div>
+
+
+<div class="book-table ptb-100 bg-img" id="book" style="background-image:url(/assets/img/banner/book-a-table.jpg);">
+    <div class="container">
+        <div id="BookTable"class="section-title text-center mb-50">
+            <h2>book a table</h2>
+            <p>
+                Ready to dine with us? Reserve your spot today and enjoy a seamless dining experience. Whether it’s a casual lunch or a special evening, we’re here to make it memorable. Simply fill out the form below and we’ll take care of the rest.
+
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="reserve-form">
+                    <h3 class="reserv-title">Reservation Form</h3>
+                    <form asp-action="BookTable">
+                
+                        <div class="reserve-form-top">
+
+                       
+                            <input asp-for ="TransactionBookTable.TransactionBookTableFullName" type="text" placeholder="Name ">
+                            <input asp-for="TransactionBookTable.TransactionBookTableEmail" type="email" placeholder="Email address">
+                            <input asp-for="TransactionBookTable. TransactionBookTableMobileNumber" type="text" placeholder="Mobile number">
+                            <div class="date-time">
+                                <label asp-for="TransactionBookTable. TransactionBookTableDate" class="control-label"></label>
+                                <input asp-for="TransactionBookTable. TransactionBookTableDate" class="form-control " />
+                            </div>
+                        </div>
+                        <div class="reserve-submit mt-40">
+                            <button type="submit"> submit </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="book-img">
+                    <img src="~/assets/img/banner/table.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="testimonial-area ptb-100 gray-bg">
+    <div class="container">
+        <div class="section-title text-center mb-50">
+            <h2>what people say</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="testimonial-image-slider text-center">
+
+
+                    @{
+                        foreach (var item in Model.FeedBacksList)
+                        {
+                            <div class="single-testi-text">
+                                <p>@item.MasterFeedBackContent</p>
+
+                            </div>
+                        }
+
+                    }
+
+
+
+                </div>
+                <div class="testimonial-text-slider text-center">
+
+                    @{
+                        foreach (var item in Model.FeedBacksList)
+                        {
+                            <div class="single-testi-text">
+                                <div class="single-testi-img">
+                                    <img src="~/images/@item.MasterFeedBackImageUrl" alt="testi 1" style="
+                border: 1px solid #eeeeee;
+                    border-radius: 50px;
+                    display: inline-block;
+width:89px;height:87px
+
+;" />
+                                    <h3>@item.MasterCustomerName</h3>
+                                    <h5>Customer</h5>
+                                </div>
+
+                            </div>
+                        }
+
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="offer-area gray-bg ptb-100 bg-img" style="background-image:url(/images/@Model.Offer.MasterOfferImageUrl);">
+    <div class="container">
+        <div class="row">
+            <div class="xl-auto col-xl-5 ms-auto col-lg-6 col-md-12">
+                <div class="offer-content">
+                    <h5>@Model.Offer.MasterOfferTitle</h5>
+                    <h2>@Model.Offer.MasterOfferBreef</h2>
+                    <p> @Model.Offer.MasterOfferDesc</p>
+                    <div class="default-btn-style book-btn mt-35">
+                        <a href="#BookTable" class="scroll-up">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="brand-logo-area ptb-100">
+    <div class="container">
+        <div class="brand-logo-active owl-carousel">
+            @{
+                foreach(var item in Model.MasterPartnerList)
+                {
+
+                    <div class="single-brand-logo">
+                        <a href="@item.MasterPartnerWebsiteUrl" class="link-light ">
+                            <img alt="" src="~/images/@item.MasterPartnerLogoImageUrl"> 
+                     </a>
+
+                    </div>
+
+                }
+
+        }
+        
+           
+        </div>
+    </div>
+</div>
+
+
+

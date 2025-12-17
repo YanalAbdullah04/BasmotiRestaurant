@@ -1,0 +1,73 @@
+﻿@model Restaurant.ViewModels.MasterSocialMediaModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title fs-2">Edit Menu  </h5>
+        <nav class="">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                <li class="breadcrumb-item"><a asp-action="Index">Menu Items </a></li>
+                <li class="breadcrumb-item active">Edit Slider</li>
+
+
+            </ol>
+        </nav>
+        <hr />
+        <form asp-action="Edit" class="row g-3" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div hidden>
+                <input asp-for="MasterSocialMediaId" hidden />
+                <input type="hidden" asp-for="CreatDate" />
+                <input type="hidden" asp-for="CreatUser" />
+                <input type="hidden" asp-for="EditUser" />
+                <input type="hidden" asp-for="EditDate" />
+                <input type="hidden" asp-for="MasterSocialMediaImageUrl" />
+            </div>
+
+            <div class="col-12">
+                <label asp-for="MasterSocialMediaUrl" class="control-label"></label>
+                <input asp-for="MasterSocialMediaUrl" class="form-control " />
+                <span asp-validation-for="MasterSocialMediaUrl" class="text-danger"></span>
+            </div>
+
+            <div class="col-6">
+                <label asp-for="File" class="control-label"></label>
+                <input asp-for="File" class="form-control " />
+                <span asp-validation-for="File" class="text-danger"></span>
+            </div>
+            <fieldset class="row mb-3 mt-4 ">
+                <legend class="col-form-label col-sm-1 pt-0">status</legend>
+                <div class="col-sm-8">
+                    <div class="form-check">
+                        <input asp-for="IsActive" class="form-check-input" type="checkbox">
+                        <label asp-for="IsActive" class="form-check-label">
+                            Active
+                        </label>
+                    </div>
+                </div>
+
+
+            </fieldset>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+
+            <div>
+
+                <button type="button" class="btn btn-outline-primary">
+                    <a asp-action="Index">Cancel </a>
+
+                </button>
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
